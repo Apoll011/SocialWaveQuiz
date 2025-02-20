@@ -30,7 +30,7 @@ interface SubmissionResponse {
     message?: string;
 }
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://socialwavequizserver.onrender.com';
 
 const CrosswordGame = ({ username }) => {
     const [leaderboard, setLeaderboard] = useState<PlayerScore[]>([]);
@@ -79,7 +79,7 @@ const CrosswordGame = ({ username }) => {
             },
             9: {
                 clue: 'Algo comum em comentários e fóruns online, onde as pessoas compartilham opiniões – às vezes de forma acalorada!',
-                answer: 'DISCUTIR',
+                answer: 'Discutir',
                 row: 8,
                 col: 5,
             },

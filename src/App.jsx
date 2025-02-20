@@ -23,7 +23,7 @@ const About = () => (
     </Container>
 );
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://socialwavequizserver.onrender.com';
 
 const Layout = ({ username, children }) =>{
     const [playerScore, setPlayerScore] = useState(null);
@@ -131,7 +131,7 @@ const App = () => {
                 } />
                 <Route path="/word-guesser" element={
                     <Layout username={username}>
-                        <WordleClone />
+                        <WordleClone username={username}/>
                     </Layout>
                 } />
                 <Route path="/about" element={

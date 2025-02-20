@@ -1,18 +1,26 @@
 // @ts-ignore
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
 import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import {ConfettiCelebration} from "./ConfetiCelebration";
 
-const WordleClone = () => {
+const API_URL = 'http://socialwavequizserver.onrender.com';
+
+const WordleClone = ({username}) => {
     // Internal list of words and descriptions
     const wordList = [
-        { word: 'react', description: 'Uma biblioteca JavaScript para criar interfaces de usuário' },
-        { word: 'estado', description: 'Um conceito fundamental no React para armazenar dados' },
-        { word: 'props', description: 'Como os componentes React se comunicam entre si' },
-        { word: 'gancho', description: 'Uma nova adição ao React que permite usar estado em componentes funcionais' },
-        { word: 'redux', description: 'Uma biblioteca popular para gerenciar o estado global da aplicação' }
+        { word: 'feed', description: 'Sequência de postagens exibidas aos usuários em uma rede social' },
+        { word: 'hashtag', description: 'Palavra-chave precedida por # usada para categorizar conteúdos' },
+        { word: 'engajamento', description: 'Métrica que mede interações como curtidas, comentários e compartilhamentos' },
+        { word: 'algoritmo', description: 'Sistema que define quais conteúdos são exibidos para cada usuário' },
+        { word: 'influenciador', description: 'Pessoa que tem grande alcance e influência sobre um público' },
+        { word: 'stories', description: 'Publicações temporárias que desaparecem após um período determinado' },
+        { word: 'viral', description: 'Conteúdo amplamente compartilhado em pouco tempo' },
+        { word: 'seguidores', description: 'Usuários que acompanham o perfil de uma pessoa ou marca' },
+        { word: 'trending', description: 'Tópico ou conteúdo popular em um determinado momento' },
+        { word: 'DM', description: 'Mensagem direta enviada entre usuários em uma rede social' }
     ];
+    
     
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [guess, setGuess] = useState('');
@@ -142,6 +150,8 @@ const WordleClone = () => {
         if (normalizedGuess === normalizedWord) {
             setWin(true);
             setGameOver(true);
+            console.log("Es gay!")
+            addWord(currentWordObj.word);
             setCompletedWords(completedWords + 1);
             setMessage(`Parabéns! Você acertou: ${currentWordObj.word.toUpperCase()}`);
             onFinish();
@@ -153,6 +163,22 @@ const WordleClone = () => {
             setCurrentRow(currentRow + 1);
         }
     };
+    
+    const points = 100;
+    
+    const addWord = useCallback(async (word) => {
+        try {
+            const response = await fetch(`${API_URL}/add-word`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({username, word, points})
+            });
+            if (!response.ok) throw new Error('Failed to fetch leaderboard');
+            const data = await response.json();
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
     
     const onFinish = () => {
         if (currentWordIndex < wordList.length - 1) {
