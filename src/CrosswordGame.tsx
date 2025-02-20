@@ -194,7 +194,6 @@ const CrosswordGame = ({ username }) => {
             if (data.status === 'success') {
                 setCompletedWords(prev => new Set(prev).add(wordKey));
                 fetchLeaderboard();
-                fetchPlayerScore();
                 
                 // Show success message if points were earned
                 if (data.points_earned) {
