@@ -30,7 +30,7 @@ interface SubmissionResponse {
     message?: string;
 }
 
-const API_URL = 'http://socialwavequizserver.onrender.com';
+const API_URL = 'https://socialwavequizserver.onrender.com';
 
 const CrosswordGame = ({ username }) => {
     const [leaderboard, setLeaderboard] = useState<PlayerScore[]>([]);

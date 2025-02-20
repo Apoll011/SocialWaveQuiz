@@ -4,7 +4,7 @@ import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap'
 import { motion } from 'framer-motion';
 import {ConfettiCelebration} from "./ConfetiCelebration";
 
-const API_URL = 'http://socialwavequizserver.onrender.com';
+const API_URL = 'https://socialwavequizserver.onrender.com';
 
 const WordleClone = ({username}) => {
     // Internal list of words and descriptions

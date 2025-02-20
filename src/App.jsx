@@ -23,7 +23,7 @@ const About = () => (
     </Container>
 );
 
-const API_URL = 'http://socialwavequizserver.onrender.com';
+const API_URL = 'https://socialwavequizserver.onrender.com';
 
 const Layout = ({ username, children }) =>{
     const [playerScore, setPlayerScore] = useState(null);
