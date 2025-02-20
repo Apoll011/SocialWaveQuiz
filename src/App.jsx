@@ -98,7 +98,7 @@ const App = () => {
                     <Col md={6}>
                         <Card className="shadow">
                             <Card.Body className="p-5">
-                                <h1 className="text-center mb-4">Bem-vindo ao Jogo de Palavras Cruzadas!</h1>
+                                <h1 className="text-center mb-4">Bem-vindo ao Jogo de Palavras Cruzadas da SocialWave!</h1>
                                 <Form onSubmit={handleUsernameSubmit}>
                                     <Form.Group className="mb-3">
                                         <Form.Control
