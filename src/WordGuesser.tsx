@@ -9,16 +9,31 @@ const API_URL = 'https://socialwavequizserver.onrender.com';
 const WordleClone = ({username}) => {
     // Internal list of words and descriptions
     const wordList = [
-        { word: 'feed', description: 'Sequência de postagens exibidas aos usuários em uma rede social' },
-        { word: 'hashtag', description: 'Palavra-chave precedida por # usada para categorizar conteúdos' },
-        { word: 'engajamento', description: 'Métrica que mede interações como curtidas, comentários e compartilhamentos' },
-        { word: 'algoritmo', description: 'Sistema que define quais conteúdos são exibidos para cada usuário' },
-        { word: 'influenciador', description: 'Pessoa que tem grande alcance e influência sobre um público' },
-        { word: 'stories', description: 'Publicações temporárias que desaparecem após um período determinado' },
-        { word: 'viral', description: 'Conteúdo amplamente compartilhado em pouco tempo' },
-        { word: 'seguidores', description: 'Usuários que acompanham o perfil de uma pessoa ou marca' },
-        { word: 'trending', description: 'Tópico ou conteúdo popular em um determinado momento' },
-        { word: 'DM', description: 'Mensagem direta enviada entre usuários em uma rede social' }
+        { word: 'feed', description: 'Sequência cronológica de postagens exibidas aos usuários em uma rede social, personalizada conforme seus interesses e interações' },
+        { word: 'hashtag', description: 'Palavra-chave precedida pelo símbolo # que categoriza conteúdos e facilita buscas por temas específicos nas redes sociais' },
+        { word: 'engajamento', description: 'Métrica crucial que mede o nível de interações (curtidas, comentários, compartilhamentos, salvamentos) que um conteúdo recebe, indicando sua relevância' },
+        { word: 'algoritmo', description: 'Sistema complexo de inteligência artificial que analisa comportamentos e define quais conteúdos são mais relevantes para cada usuário' },
+        { word: 'influenciador', description: 'Pessoa com autoridade digital que possui grande alcance e capacidade de impactar decisões de seu público através de recomendações e opiniões' },
+        { word: 'stories', description: 'Publicações efêmeras em formato vertical que desaparecem após 24 horas, ideais para conteúdo casual e momentâneo' },
+        { word: 'viral', description: 'Conteúdo que se espalha rapidamente pela internet, alcançando milhares ou milhões de visualizações em um curto período de tempo' },
+        { word: 'seguidores', description: 'Base de usuários que optam por acompanhar regularmente o conteúdo de uma pessoa, marca ou página nas redes sociais' },
+        { word: 'trending', description: 'Tópico ou assunto em alta popularidade em determinado momento, frequentemente destacado em seções especiais das plataformas' },
+        { word: 'DM', description: 'Mensagem privada enviada diretamente entre usuários em uma rede social, também conhecida como "direct message" ou mensagem direta' },
+        { word: 'reels', description: 'Formato de vídeos curtos e verticais, inspirado no TikTok, que combina música, efeitos visuais e edição rápida' },
+        { word: 'timeline', description: 'Linha do tempo que organiza cronologicamente todas as publicações e atualizações de uma rede social' },
+        { word: 'bot', description: 'Programa automatizado que simula comportamento humano nas redes sociais, podendo interagir com usuários ou publicar conteúdo' },
+        { word: 'newsletter', description: 'Comunicação periódica enviada por email para seguidores interessados em receber conteúdo exclusivo ou atualizações' },
+        { word: 'thread', description: 'Sequência de postagens conectadas sobre um mesmo assunto, criando uma narrativa contínua ou discussão aprofundada' },
+        { word: 'lurker', description: 'Usuário que consome conteúdo nas redes sociais sem interagir ou publicar, permanecendo apenas como observador' },
+        { word: 'shadowban', description: 'Restrição invisível aplicada a uma conta, limitando seu alcance sem notificar o usuário sobre a penalidade' },
+        { word: 'troll', description: 'Pessoa que deliberadamente provoca, intimida ou causa discórdia nas redes sociais através de comentários controversos' },
+        { word: 'filtro', description: 'Efeito digital que altera a aparência de fotos e vídeos, frequentemente usado para melhorar selfies ou criar conteúdo humorístico' },
+        { word: 'sticker', description: 'Imagem ou animação decorativa que pode ser adicionada a stories ou mensagens para expressar emoções ou ideias' },
+        { word: 'live', description: 'Transmissão em tempo real que permite interação direta entre criadores de conteúdo e seu público através de comentários' },
+        { word: 'meme', description: 'Conteúdo humorístico que se espalha rapidamente pela internet, frequentemente adaptado e remixado por diferentes usuários' },
+        { word: 'pods', description: 'Grupos de engajamento mútuo onde usuários combinam de interagir com o conteúdo uns dos outros para aumentar visibilidade' },
+        { word: 'impressões', description: 'Número total de vezes que um conteúdo foi exibido, independentemente de quem o visualizou ou se gerou interações' },
+        { word: 'alcance', description: 'Métrica que indica o número de contas únicas que visualizaram uma publicação ou perfil em determinado período' }
     ];
     
     
